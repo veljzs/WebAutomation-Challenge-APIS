@@ -9,6 +9,7 @@
 - `mvn install -DskipTests` (descarga todas las dependencias del POM)
 
 ## Instrucciones para ejecutar los test
+- Verificar que se tenga los `Plugin Cucumber for Java` y `Gherkin`
 - Ir a `src/test/resources/demoblaze-Api-Test.feature`
 - **Importante:** Cambia el `username` y `password` a los datos del nuevo usuario que deseas crear. Utiliza estos mismos datos para todos los escenarios, excepto para el de **Usuario y password incorrecto en login**.
 - Correr el test desde la línea: **Feature: Signup y Login API Tests**
