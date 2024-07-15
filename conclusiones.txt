@@ -1,4 +1,4 @@
-Al ejecutar los diferentes escenarios, se observó que es fundamental visitar la tienda de Demoblaze y revisar el networking para entender qué solicitudes se envían al realizar un signup y un login. Esto proporciona una idea clara de los encabezados necesarios, los tipos de códigos de estado esperados y facilita la construcción de los escenarios en Karate.
+Al ejecutar los diferentes escenarios, se observó que es fundamental visitar la tienda de Demoblaze y revisar el networking para entender qué se envía y que se reciben al realizar un signup y un login. Esto proporciona una idea clara de los encabezados necesarios para el request y los estado esperados en el response. Facilitando la construcción de los escenarios en Karate.
 
 En cuanto a la validación, fue necesario utilizar estructuras condicionales (if) en varios puntos:
 
