@@ -1,0 +1,9 @@
+Al ejecutar los diferentes escenarios, se observó que es fundamental visitar la tienda de Demoblaze y revisar el networking para entender qué solicitudes se envían al realizar un signup y un login. Esto proporciona una idea clara de los encabezados necesarios, los tipos de códigos de estado esperados y facilita la construcción de los escenarios en Karate.
+
+En cuanto a la validación, fue necesario utilizar estructuras condicionales (if) en varios puntos:
+
+- En el escenario de Crear nuevo usuario, el responseBody estaba vacío después de una prueba exitosa.
+- En el escenario de Usuario y password correcto en login, el responseBody contenía un token, el cual varía según el usuario.
+- En el escenario de Usuario y password incorrecto en login, el responseBody mostraba diferentes mensajes de error según si el nombre de usuario, la contraseña o ambos eran incorrectos.
+
+Se lograron ejecutar con éxito los cuatro escenarios.
