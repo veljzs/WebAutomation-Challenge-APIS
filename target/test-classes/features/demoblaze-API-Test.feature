@@ -1,11 +1,16 @@
+
 Feature: Signup y Login API Tests
 
   Background:
     * url 'https://api.demoblaze.com'
+    * def userData = read('classpath:data/userData.json')
+
 
   Scenario: Crear un nuevo usuario
     Given path 'signup'
-    And request { username: 'usuario654882', password: 'password123' } #Cambiar a datos de un nuevo usuario
+    * def user = userData.users[0]
+    * print 'Using user data:', user
+    And request { username: #(user.username), password: #(user.password) }
     And header Content-Type = 'application/json'
     And header Origin = 'https://www.demoblaze.com'
     And header User-Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
@@ -18,7 +23,9 @@ Feature: Signup y Login API Tests
 
   Scenario: Intentar crear un usuario ya existente
     Given path 'signup'
-    And request { username: 'usuario654882', password: 'password123' }
+    * def user = userData.users[0]
+    * print 'Using user data:', user
+    And request { username: #(user.username), password: #(user.password) }
     And header Content-Type = 'application/json'
     And header Origin = 'https://www.demoblaze.com'
     And header User-Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
@@ -30,7 +37,9 @@ Feature: Signup y Login API Tests
 
   Scenario: Usuario y password correcto en login
     Given path 'login'
-    And request { "username": "usuario654882", "password": "password123" }
+    * def user = userData.users[0]
+    * print 'Using user data:', user
+    And request { username: #(user.username), password: #(user.password) }
     And header Content-Type = 'application/json'
     And header Origin = 'https://www.demoblaze.com'
     And header User-Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
@@ -44,7 +53,9 @@ Feature: Signup y Login API Tests
 
   Scenario: Usuario y password incorrecto en login
     Given path 'login'
-    And request { "username": "usuario93645", "password": "passwordIncorrecto" }
+    * def user = userData.users[1]
+    * print 'Using user data:', user
+    And request { username: #(user.username), password: #(user.password) }
     And header Content-Type = 'application/json'
     And header Origin = 'https://www.demoblaze.com'
     And header User-Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
